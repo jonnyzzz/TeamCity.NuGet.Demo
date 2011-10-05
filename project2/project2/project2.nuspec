@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>jonnyzzz.package2</id>
+    <version>$version$</version>
+    <title>title</title>
+    <authors>@jonnyzzz</authors>
+    <owners>@jonnyzzz</owners>
+    <description>description</description>
+    <copyright>Copyright @jonnyzzz 2011</copyright>   
+  </metadata>
+</package>

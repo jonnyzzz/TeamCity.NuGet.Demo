@@ -6,7 +6,13 @@ using System.Xml;
 
 namespace TeamCity.RunnerUsages
 {
-  class Program
+  
+  public static class SuperFoo {
+    public static string Sup {get { return "aaa"; } }
+  }
+
+
+  public class Program545
   {
     static int Main(string[] args)
     {

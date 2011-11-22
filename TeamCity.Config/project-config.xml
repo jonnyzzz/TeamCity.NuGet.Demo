@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project SYSTEM "../project-config.dtd">
+
+<project id="projectx3">
+  <parameters />
+  <build-type id="btx5" name="project1">
+    <description />
+    <settings>
+      <options>
+        <option name="buildNumberPattern" value="2.2.3.{0}" />
+      </options>
+      <parameters />
+      <build-runners>
+        <runner id="RUNNER_8" name="" type="VS.Solution">
+          <parameters>
+            <param name="build-file-path" value="project1\TeamCity.RunnerUsages.sln" />
+            <param name="msbuild.prop.Configuration" value="Release" />
+            <param name="msbuild_version" value="4.0" />
+            <param name="run-platform" value="x86" />
+            <param name="targets" value="Rebuild" />
+            <param name="toolsVersion" value="4.0" />
+            <param name="vs.version" value="vs2010" />
+          </parameters>
+        </runner>
+        <runner id="RUNNER_14" name="Pack as Artifact" type="jb.nuget.pack">
+          <parameters>
+            <param name="nuget.pack.output.clean" value="true" />
+            <param name="nuget.pack.output.directory" value="packages" />
+            <param name="nuget.pack.properties" value="Configuration=Release" />
+            <param name="nuget.pack.specFile" value="project1\TeamCity.RunnerUsages\TeamCity.RunnerUsages.csproj" />
+            <param name="nuget.pack.version" value="%build.number%" />
+            <param name="nuget.path" value="c:\tools\nuget.exe" />
+            <param name="nugetCustomPath" value="c:\tools\nuget.exe" />
+            <param name="nugetPathSelector" value="custom" />
+          </parameters>
+        </runner>
+      </build-runners>
+      <vcs-settings checkout-mode="MANUAL" checkout-dir="E:\Temp\_nuget_packages_sample\" labeling-type="NONE" labeling-pattern="build-%system.build.number%" />
+      <requirements />
+      <build-triggers />
+      <artifact-publishing paths="packages/** =&gt; ." />
+      <cleanup />
+    </settings>
+  </build-type>
+  <build-type id="btx3" name="project1 + x">
+    <description />
+    <settings>
+      <options>
+        <option name="buildNumberPattern" value="2.33.3.{0}" />
+      </options>
+      <parameters />
+      <build-runners>
+        <runner id="RUNNER_8" name="" type="VS.Solution">
+          <parameters>
+            <param name="build-file-path" value="project1\TeamCity.RunnerUsages.sln" />
+            <param name="msbuild.prop.Configuration" value="Release" />
+            <param name="msbuild_version" value="4.0" />
+            <param name="run-platform" value="x86" />
+            <param name="targets" value="Rebuild" />
+            <param name="toolsVersion" value="4.0" />
+            <param name="vs.version" value="vs2010" />
+          </parameters>
+        </runner>
+        <runner id="RUNNER_14" name="Pack as Artifact" type="jb.nuget.pack">
+          <parameters>
+            <param name="nuget.pack.output.clean" value="true" />
+            <param name="nuget.pack.output.directory" value="packages" />
+            <param name="nuget.pack.properties" value="Configuration=Release" />
+            <param name="nuget.pack.specFile"><![CDATA[project1\**\*vbproj
+project1\**\*csproj]]></param>
+            <param name="nuget.pack.version" value="%build.number%" />
+            <param name="nuget.path" value="c:\tools\nuget.exe" />
+            <param name="nugetCustomPath" value="c:\tools\nuget.exe" />
+            <param name="nugetPathSelector" value="custom" />
+          </parameters>
+        </runner>
+      </build-runners>
+      <vcs-settings checkout-mode="MANUAL" checkout-dir="E:\Temp\_nuget_packages_sample\" labeling-type="NONE" labeling-pattern="build-%system.build.number%" />
+      <requirements />
+      <build-triggers />
+      <artifact-publishing paths="packages/** =&gt; ." />
+      <cleanup />
+    </settings>
+  </build-type>
+  <build-type id="btx6" name="project2">
+    <description />
+    <settings>
+      <options>
+        <option name="buildNumberPattern" value="2.3.{0}.4" />
+      </options>
+      <parameters />
+      <build-runners>
+        <runner id="RUNNER_11" name="" type="jb.nuget.installer">
+          <parameters>
+            <param name="nuget.path" value="c:\tools\nuget.exe" />
+            <param name="nuget.sources" value="F:\Packages_xxx" />
+            <param name="nuget.updatePackages" value="true" />
+            <param name="nugetCustomPath" value="c:\tools\nuget.exe" />
+            <param name="nugetPathSelector" value="custom" />
+            <param name="sln.path" value="project2\project2\project2.sln" />
+          </parameters>
+        </runner>
+        <runner id="RUNNER_12" name="" type="VS.Solution">
+          <parameters>
+            <param name="build-file-path" value="project2\project2\project2.sln" />
+            <param name="msbuild.prop.Configuration" value="Release" />
+            <param name="msbuild_version" value="4.0" />
+            <param name="run-platform" value="x86" />
+            <param name="targets" value="Rebuild" />
+            <param name="toolsVersion" value="4.0" />
+            <param name="vs.version" value="vs2010" />
+          </parameters>
+        </runner>
+        <runner id="RUNNER_13" name="" type="jb.nuget.pack">
+          <parameters>
+            <param name="nuget.pack.output.directory" value="F:\Packages_xxx" />
+            <param name="nuget.pack.pack.mode.tool" value="true" />
+            <param name="nuget.pack.properties" value="Configuration=Release" />
+            <param name="nuget.pack.specFile" value="project2\project2\project2.csproj" />
+            <param name="nuget.pack.version" value="%build.number%" />
+            <param name="nuget.path" value="c:\tools\nuget.exe" />
+            <param name="nugetCustomPath" value="c:\tools\nuget.exe" />
+            <param name="nugetPathSelector" value="custom" />
+          </parameters>
+        </runner>
+      </build-runners>
+      <vcs-settings checkout-mode="MANUAL" checkout-dir="E:\Temp\_nuget_packages_sample\" labeling-type="NONE" labeling-pattern="build-%system.build.number%" />
+      <requirements />
+      <build-triggers />
+      <cleanup />
+    </settings>
+  </build-type>
+  <build-type id="btx2" name="project2 - feed">
+    <description />
+    <settings>
+      <options>
+        <option name="buildNumberPattern" value="2.3.{0}.4" />
+      </options>
+      <parameters />
+      <build-runners>
+        <runner id="RUNNER_11" name="" type="jb.nuget.installer">
+          <parameters>
+            <param name="nuget.path" value="c:\tools\nuget.exe" />
+            <param name="nuget.sources" value="%teamcity.nuget.feed.server%" />
+            <param name="nuget.updatePackages" value="true" />
+            <param name="nugetCustomPath" value="c:\tools\nuget.exe" />
+            <param name="nugetPathSelector" value="custom" />
+            <param name="sln.path" value="project2\project2\project2.sln" />
+          </parameters>
+        </runner>
+        <runner id="RUNNER_12" name="" type="VS.Solution">
+          <parameters>
+            <param name="build-file-path" value="project2\project2\project2.sln" />
+            <param name="msbuild.prop.Configuration" value="Release" />
+            <param name="msbuild_version" value="4.0" />
+            <param name="run-platform" value="x86" />
+            <param name="targets" value="Rebuild" />
+            <param name="toolsVersion" value="4.0" />
+            <param name="vs.version" value="vs2010" />
+          </parameters>
+        </runner>
+        <runner id="RUNNER_13" name="" type="jb.nuget.pack">
+          <parameters>
+            <param name="nuget.pack.output.directory" value="packages" />
+            <param name="nuget.pack.pack.mode.tool" value="true" />
+            <param name="nuget.pack.properties" value="Configuration=Release" />
+            <param name="nuget.pack.specFile" value="project2\**\*csproj" />
+            <param name="nuget.pack.version" value="%build.number%" />
+            <param name="nuget.path" value="c:\tools\nuget.exe" />
+            <param name="nugetCustomPath" value="c:\tools\nuget.exe" />
+            <param name="nugetPathSelector" value="custom" />
+          </parameters>
+        </runner>
+      </build-runners>
+      <vcs-settings checkout-mode="MANUAL" checkout-dir="E:\Temp\_nuget_packages_sample\" labeling-type="NONE" labeling-pattern="build-%system.build.number%" />
+      <requirements />
+      <build-triggers />
+      <artifact-publishing paths="packages/**/*.nupkg =&gt; ." />
+      <cleanup />
+    </settings>
+  </build-type>
+</project>
+

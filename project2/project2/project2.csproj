@@ -41,8 +41,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="TeamCity.RunnerUsages">
-      <HintPath>packages\Jonnyzzz.TeamCity.RunnerUsages.2.2.3.153\lib\net40-Client\TeamCity.RunnerUsages.exe</HintPath>
+    <Reference Include="TeamCity.RunnerUsages, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <ExecutableExtension>.exe</ExecutableExtension>
+      <HintPath>packages\Jonnyzzz.TeamCity.RunnerUsages.2.2.3.8\lib\net40-Client\TeamCity.RunnerUsages.exe</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

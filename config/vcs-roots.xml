@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vcs-roots modification-check-interval="60" quiet-period="60">
+  <vcs-root id="1" name="E:\Ref\TeamCity.20676\Data\demoRepos\nuget\TeamCity.NuGet.Demo\" type="jetbrains.git">
+    <scope level="project" project-id="project2" />
+    <param name="agentCleanFilesPolicy" value="ALL_UNTRACKED" />
+    <param name="agentCleanPolicy" value="ON_BRANCH_CHANGE" />
+    <param name="authMethod" value="ANONYMOUS" />
+    <param name="branch" value="master" />
+    <param name="ignoreKnownHosts" value="true" />
+    <param name="submoduleCheckout" value="CHECKOUT" />
+    <param name="url" value="E:\Ref\TeamCity.20676\Data\demoRepos\nuget\TeamCity.NuGet.Demo\" />
+    <param name="usernameStyle" value="USERID" />
+  </vcs-root>
+</vcs-roots>
+

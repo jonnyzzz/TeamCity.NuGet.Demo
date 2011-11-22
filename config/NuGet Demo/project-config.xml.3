@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project SYSTEM "../project-config.dtd">
+
+<project id="project2">
+  <parameters />
+  <build-type id="bt2" name="Project 1">
+    <description />
+    <settings>
+      <options>
+        <option name="cleanBuild" value="true" />
+      </options>
+      <parameters />
+      <build-runners>
+        <runner id="RUNNER_1" name="" type="VS.Solution">
+          <parameters>
+            <param name="build-file-path" value="project1\TeamCity.RunnerUsages.sln" />
+            <param name="msbuild.prop.Configuration" value="Release" />
+            <param name="msbuild_version" value="4.0" />
+            <param name="run-platform" value="x86" />
+            <param name="targets" value="Rebuild" />
+            <param name="toolsVersion" value="4.0" />
+            <param name="vs.version" value="vs2010" />
+          </parameters>
+        </runner>
+        <runner id="RUNNER_2" name="pack packages" type="jb.nuget.pack">
+          <parameters>
+            <param name="nuget.pack.output.clean" value="true" />
+            <param name="nuget.pack.output.directory" value="packages" />
+            <param name="nuget.pack.properties" value="Configuration=Release" />
+            <param name="nuget.pack.specFile"><![CDATA[project1\**\*.csproj
+project1\**\*.vbproj]]></param>
+            <param name="nuget.pack.version" value="%build.number%" />
+            <param name="nuget.path" value="?NuGet.CommandLine.1.5.21005.9019.nupkg" />
+            <param name="nugetPathSelector" value="?NuGet.CommandLine.1.5.21005.9019.nupkg" />
+          </parameters>
+        </runner>
+      </build-runners>
+      <vcs-settings checkout-mode="ON_SERVER" labeling-type="NONE" labeling-pattern="build-%system.build.number%">
+        <vcs-entry-ref root-id="1" set-label="false" />
+      </vcs-settings>
+      <requirements />
+      <build-triggers />
+      <artifact-publishing paths="packages/**/*.nupkg =&gt; ." />
+      <cleanup />
+    </settings>
+  </build-type>
+  <build-type id="bt3" name="Project 2">
+    <description />
+    <settings>
+      <options>
+        <option name="buildNumberPattern" value="0.5.{0}" />
+        <option name="cleanBuild" value="true" />
+      </options>
+      <parameters />
+      <build-runners>
+        <runner id="RUNNER_3" name="fetch packages" type="jb.nuget.installer">
+          <parameters>
+            <param name="nuget.path" value="?NuGet.CommandLine.1.5.21005.9019.nupkg" />
+            <param name="nuget.sources" value="%teamcity.nuget.feed.server%" />
+            <param name="nuget.updatePackages" value="true" />
+            <param name="nugetCustomPath" value="?NuGet.CommandLine.1.5.21005.9019.nupkg" />
+            <param name="nugetPathSelector" value="?NuGet.CommandLine.1.5.21005.9019.nupkg" />
+            <param name="sln.path" value="project2\project2\project2.sln" />
+          </parameters>
+        </runner>
+        <runner id="RUNNER_4" name="build" type="VS.Solution">
+          <parameters>
+            <param name="build-file-path" value="project2\project2\project2.sln" />
+            <param name="msbuild.prop.Configuration" value="Release" />
+            <param name="msbuild_version" value="4.0" />
+            <param name="run-platform" value="x86" />
+            <param name="targets" value="Rebuild" />
+            <param name="toolsVersion" value="4.0" />
+            <param name="vs.version" value="vs2010" />
+          </parameters>
+        </runner>
+        <runner id="RUNNER_5" name="more packages" type="jb.nuget.pack">
+          <parameters>
+            <param name="nuget.pack.output.clean" value="true" />
+            <param name="nuget.pack.output.directory" value="packages" />
+            <param name="nuget.pack.properties" value="Configuration=Release" />
+            <param name="nuget.pack.specFile" value="project2\**\*csproj" />
+            <param name="nuget.pack.version" value="%build.number%" />
+            <param name="nuget.path" value="?NuGet.CommandLine.1.5.21005.9019.nupkg" />
+            <param name="nugetPathSelector" value="?NuGet.CommandLine.1.5.21005.9019.nupkg" />
+          </parameters>
+        </runner>
+      </build-runners>
+      <vcs-settings checkout-mode="ON_SERVER" labeling-type="NONE" labeling-pattern="build-%system.build.number%">
+        <vcs-entry-ref root-id="1" set-label="false" />
+      </vcs-settings>
+      <requirements />
+      <build-triggers />
+      <artifact-publishing paths="packages/**/*.nupkg =&gt; ." />
+      <cleanup />
+    </settings>
+  </build-type>
+</project>
+

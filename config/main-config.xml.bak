@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server rootURL="http://localhost:8222">
+  <version number="494" />
+  <db-compact>
+    <scheduler hour="3" minute="0" />
+  </db-compact>
+  <auth-type>
+    <login-module class="jetbrains.buildServer.serverSide.impl.auth.DefaultLoginModule" />
+    <login-description />
+    <guest-login allowed="true" guest-username="guest" />
+    <free-registration allowed="true" />
+  </auth-type>
+  <artifacts maxArtifactSize="300000000" />
+  <build-settings executionTimeout="0" />
+  <comment-transformation>
+    <transformation-pattern search="((https?://|ftp://|file://|mailto:)[\w`~@#$%^&amp;*-=|\/{}()\[\];:&quot;'&lt;&gt;?\.]+(?&lt;=[^\.,;&quot;'`\)\]}]))" replace="&lt;a target=&quot;_blank&quot; title=&quot;Click to open this link in a new window&quot; href=&quot;$1&quot;&gt;$1&lt;/a&gt;" description="Links transformation (default)" />
+    <transformation-pattern search="(&#xD;?&#xA;|&#xD;)" replace="&lt;br&gt;" description="Line feed transformation (default)" />
+  </comment-transformation>
+  <report-tab title="Code Coverage" startPage="coverage.zip!index.html" />
+  <report-tab title="JavaDoc" startPage="javadoc.zip!index.html" />
+  <artifacts maxArtifactSize="300000000" />
+  <build-settings executionTimeout="0" />
+</server>
+

@@ -1,0 +1,21 @@
+<!ENTITY % common SYSTEM "common.dtd">
+%common;
+
+<!ELEMENT vcs-roots (vcs-root)*>
+<!ATTLIST vcs-roots
+    modification-check-interval CDATA #IMPLIED
+    quiet-period CDATA #IMPLIED
+>
+
+<!ELEMENT vcs-root (scope,param)*>
+<!ATTLIST vcs-root
+    id ID #REQUIRED
+    name CDATA #IMPLIED
+    type CDATA #REQUIRED
+    modification-check-interval CDATA #IMPLIED
+>
+<!ELEMENT scope EMPTY>
+<!ATTLIST scope
+    level (global|project) #REQUIRED
+    project-id CDATA #IMPLIED
+>

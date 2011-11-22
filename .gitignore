@@ -1,13 +1,9 @@
 out
 .idea/workspace.xml
-nuget-extensions/bin
-**/bin
-**/obj
-**.suo
+**/bin/**
+**/obj/**
+**/*.suo
 **/*.user
-*.user
-*.cache
 _ReSharper*
 packages
-**/bin
-**/obj
+**/*.tmp

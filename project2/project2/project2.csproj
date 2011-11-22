@@ -42,7 +42,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="TeamCity.RunnerUsages">
-      <HintPath>packages\Jonnyzzz.TeamCity.RunnerUsages.2.2.3.135\lib\net40-Client\TeamCity.RunnerUsages.exe</HintPath>
+      <HintPath>packages\Jonnyzzz.TeamCity.RunnerUsages.2.2.3.153\lib\net40-Client\TeamCity.RunnerUsages.exe</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

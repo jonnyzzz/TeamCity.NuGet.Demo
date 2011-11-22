@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>jonnyzzz.package2</id>
+    <id>simplePackage</id>
     <version>$version$</version>
     <title>title</title>
     <authors>@jonnyzzz</authors>

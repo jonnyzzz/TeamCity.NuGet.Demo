@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Another Package</id>
+    <id>Another.Package.For.NuGet</id>
     <version>1.2.2.3</version>
     <title>This is another mega package for the demo</title>
     <authors>Eugene</authors>
